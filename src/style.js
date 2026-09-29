@@ -8,7 +8,6 @@ export const pageStyle = (theme) => css`
 export const headerStyle = (theme) => css`
   height: 64px;
   background-color: ${theme.semantic.background.normal.normal};
-  border-bottom: 1px solid ${theme.semantic.line.solid.normal};
 `;
 
 export const containerStyle = css`
@@ -51,7 +50,6 @@ export const cardStyle = (theme) => css`
   min-width: 0;
   padding: 24px;
   background-color: ${theme.semantic.background.normal.normal};
-  border: 1px solid ${theme.semantic.line.normal.neutral};
   border-radius: 16px;
   box-shadow: ${theme.semantic.elevation.shadow.normal.xsmall};
   @media (max-width: 767px) {
