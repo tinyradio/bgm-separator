@@ -1,0 +1,7 @@
+node_modules
+dist
+public/models/*.onnx
+public/models/*.bin
+public/vendor
+.vercel
+.DS_Store

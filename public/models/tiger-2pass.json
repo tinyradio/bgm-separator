@@ -1,0 +1,36 @@
+{
+  "name": "TIGER-DnR music",
+  "version": "1.0.0",
+  "url": "/models/tiger-music-2pass.onnx",
+  "sampleRate": 44100,
+  "chunkSamples": 529200,
+  "nFft": 2048,
+  "hopLength": 512,
+  "inputNames": [
+    "spec_real",
+    "spec_imag"
+  ],
+  "outputNames": [
+    "music_real",
+    "music_imag"
+  ],
+  "inputShape": [
+    1,
+    1025,
+    1034
+  ],
+  "outputShape": [
+    1,
+    1025,
+    1034
+  ],
+  "center": true,
+  "padMode": "reflect",
+  "window": "periodic-hann",
+  "sha256": "abd228b013a441c716ddd0ec594dc17768ca5ad83d632b953840f12aac834761",
+  "sizeBytes": 17022246,
+  "license": "Apache-2.0 weights; MIT architecture",
+  "sourceIndex": 0,
+  "file": "tiger-music-2pass.onnx",
+  "graphChange": "InstanceNormalization rewritten as two-pass ReduceMean ops (scripts/tiger_two_pass_norm.py); weights unchanged. The fused op lost precision on WebGPU for near-silent bands (17% output error measured, 0.1% after)."
+}

@@ -1,0 +1,54 @@
+{
+  "name": "UVR-MDX-NET-Voc_FT",
+  "version": "1.0.0",
+  "mode": "vocals",
+  "url": "/models/uvr-vocals.onnx",
+  "sampleRate": 44100,
+  "chunkSamples": 261120,
+  "nFft": 7680,
+  "hopLength": 1024,
+  "dimF": 3072,
+  "dimT": 256,
+  "trimSamples": 3840,
+  "compensate": 1.021,
+  "inputNames": [
+    "input"
+  ],
+  "outputNames": [
+    "output"
+  ],
+  "inputShape": [
+    1,
+    4,
+    3072,
+    256
+  ],
+  "outputShape": [
+    1,
+    4,
+    3072,
+    256
+  ],
+  "channelOrder": [
+    "left-real",
+    "left-imag",
+    "right-real",
+    "right-imag"
+  ],
+  "center": true,
+  "padMode": "reflect",
+  "window": "periodic-hann",
+  "zeroLowBins": 3,
+  "sha256": "534b2070fcc7df514b13ef660dc8cbb328679c2374d04354a5c42bb14ecce111",
+  "sizeBytes": 66762490,
+  "license": "MIT (UVR author model-use statement; see NOTICE-UVR.txt)",
+  "primaryStem": "Vocals",
+  "secondaryStem": "Instrumental",
+  "uvrModelHash": "77d07b2667ddf05b9e3175941b4454a0",
+  "uvrHashBytes": 10240000,
+  "opset": 13,
+  "sourceUrl": "https://github.com/TRvlvr/model_repo/releases/download/all_public_uvr_models/UVR-MDX-NET-Voc_FT.onnx",
+  "sourceConfigUrl": "https://raw.githubusercontent.com/TRvlvr/application_data/main/mdx_model_data/model_data.json",
+  "uvrSourceCommit": "5517e0cf0d1acd16a1618eeedec596957523f9e1",
+  "paramsSourceCommit": "3826b05b570dbd4fbedbc807758803b35348ba1b"
+}
