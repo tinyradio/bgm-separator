@@ -388,9 +388,9 @@ export async function separateVideo(file, { mode = 'dialogue', range = null, onP
 
     const outExt = input.outputExtension;
     const output = `result.${outExt}`;
-    const opusRate = channelCount === 1 ? '256k' : '320k';
+    // WebM gets Vorbis: libopus in ffmpeg.wasm 0.12.x crashes ("memory access out of bounds").
     const audioCodec = outExt === 'mkv' ? ['-c:a', 'flac']
-      : outExt === 'webm' ? ['-c:a', 'libopus', '-b:a', opusRate]
+      : outExt === 'webm' ? ['-c:a', 'libvorbis', '-q:a', '8']
       : ['-c:a', 'aac', '-b:a', '320k'];
     const movFlags = ['mp4', 'mov'].includes(outExt) ? ['-movflags', '+faststart+use_metadata_tags'] : [];
     report(85, '화질과 프레임을 그대로 유지해 영상을 합치고 있어요.', 'mux');
@@ -424,7 +424,7 @@ export async function separateVideo(file, { mode = 'dialogue', range = null, onP
     if (outExt === 'mkv' || outExt === 'mov') {
       warnings.push('이 파일 형식은 브라우저 미리보기가 지원되지 않을 수 있습니다. 다운로드 후 영상 플레이어에서 확인해 주세요.');
     }
-    const audioEncoding = outExt === 'mkv' ? 'FLAC' : outExt === 'webm' ? `Opus ${parseInt(opusRate, 10)} kbps` : 'AAC 320 kbps';
+    const audioEncoding = outExt === 'mkv' ? 'FLAC' : outExt === 'webm' ? 'Vorbis q8' : 'AAC 320 kbps';
     report(100, '분리가 끝났어요. 원본 영상 데이터가 그대로인 것도 확인했습니다.', 'done');
 
     return {
